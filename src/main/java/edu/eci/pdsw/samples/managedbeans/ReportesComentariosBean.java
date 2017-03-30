@@ -29,18 +29,9 @@ import javax.faces.bean.SessionScoped;
  *
  * @author hcadavid
  */
-@ManagedBean(name = "mb")
-@SessionScoped
 public class ReportesComentariosBean {
     
     
-    public Set<Comentario> getData() throws Exception{
-        try {
-            return ServiciosSuscripcionesFactory.getInstance().getSuscriptionServices().comenteriosMasBajosPorRangoEdad(1, 10);
-        } catch (ExcepcionServiciosSuscripciones ex) {
-            Logger.getLogger(ReportesComentariosBean.class.getName()).log(Level.SEVERE, null, ex);
-            throw ex;
-        }
-    }
+
     
 }

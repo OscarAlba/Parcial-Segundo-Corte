@@ -17,7 +17,6 @@
 package edu.eci.pdsw.samples.tests;
 
 import edu.eci.pdsw.samples.entities.Comentario;
-import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosSuscripcionesFactory;
 import java.sql.Connection;
@@ -25,17 +24,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
  *
- * @author hcadavid
+ * PRUEBAS - SERVCIOS SUSCRIPCIONES
+ * 
+ *      METODO: comenteriosMasBajosPorRangoNacimiento (a,b)
+ *      CE1: b <= a  . Resultado esperado: Excepcion
+ *      CE2: a <= b  . Resultado esperado: Conjunto de comentarios tal que el
+ *                      ano de nacimiento de sus suscriptores > A y <= B
+ *      CF1:
+ *      CF2:                
+ * 
+ * 
  */
 public class ServicesJUnitTest {
 
@@ -78,11 +82,8 @@ public class ServicesJUnitTest {
 	
         //Realizar la operacion de la logica y la prueba
         
-        Set<Comentario> comentarios=ServiciosSuscripcionesFactory.getInstance().getSuscriptionServicesForTesting().comenteriosMasBajosPorRangoEdad(1, 10);
+        List<Comentario> comentarios=ServiciosSuscripcionesFactory.getInstance().getSuscriptionServicesForTesting().comenteriosMasBajosPorRangoNacimiento(1980, 2000);
         
-        for (Comentario c: comentarios){
-            System.out.println(comentarios);
-        }
         //assert ...
         //Assert.fail("Pruebas no implementadas aun...");
         

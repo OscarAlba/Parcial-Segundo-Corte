@@ -22,8 +22,7 @@ import edu.eci.pdsw.samples.entities.Comentario;
 import edu.eci.pdsw.samples.persistence.DaoComentario;
 import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.ComentariosMapper;
-import java.util.Set;
-import org.apache.ibatis.session.SqlSession;
+import java.util.List;
 
 /**
  *
@@ -35,13 +34,14 @@ public class MyBatisDaoComentario implements DaoComentario{
     @Inject
     private ComentariosMapper pmap=null;
 
+
     @Override
-    public Set<Comentario> loadByScoreAndAge(int n, int a, int b) throws PersistenceException {
-        return pmap.comentarios(1, 10);
+    public List<Comentario> loadAll() throws PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Set<Comentario> loadAll() throws PersistenceException {
+    public List<Comentario> loadByScoreAndBirthYear(int N, int a, int b) throws PersistenceException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

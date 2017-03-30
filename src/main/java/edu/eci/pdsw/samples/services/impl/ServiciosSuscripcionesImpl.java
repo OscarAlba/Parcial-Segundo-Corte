@@ -8,10 +8,9 @@ package edu.eci.pdsw.samples.services.impl;
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Comentario;
 import edu.eci.pdsw.samples.persistence.DaoComentario;
-import edu.eci.pdsw.samples.persistence.PersistenceException;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosSuscripciones;
-import java.util.Set;
+import java.util.List;
 
 /**
  *
@@ -21,18 +20,15 @@ public class ServiciosSuscripcionesImpl implements ServiciosSuscripciones {
 
     @Inject
     private DaoComentario daoc;
+       
     
     @Override
-    public Set<Comentario> comenteriosMasBajosPorRangoEdad(int a, int b) throws ExcepcionServiciosSuscripciones {
-        try {
-            return daoc.loadByScoreAndAge(10, a, b);
-        } catch (PersistenceException ex) {
-            throw new ExcepcionServiciosSuscripciones("err pers", ex);
-        }
+    public List<Comentario> comenteriosRegistrados() throws ExcepcionServiciosSuscripciones {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Set<Comentario> comenteriosRegistrados() throws ExcepcionServiciosSuscripciones {
+    public List<Comentario> comenteriosMasBajosPorRangoNacimiento(int a, int b) throws ExcepcionServiciosSuscripciones {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -76,7 +76,7 @@ public class ServiciosSuscripcionesFactory {
     
     
     public static void main(String a[]) throws ExcepcionServiciosSuscripciones{
-        System.out.println(ServiciosSuscripcionesFactory.getInstance().getSuscriptionServices().comenteriosMasBajosPorRangoEdad(1, 10));
+       // System.out.println(ServiciosSuscripcionesFactory.getInstance().getSuscriptionServices().comenteriosMasBajosPorRangoEdad(1, 10));
     }
     
 }

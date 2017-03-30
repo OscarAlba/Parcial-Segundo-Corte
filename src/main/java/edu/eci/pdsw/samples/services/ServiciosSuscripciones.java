@@ -14,15 +14,16 @@ public interface ServiciosSuscripciones {
 
     
     /**
-     * Consultar los comentarios mas bajos (menores a 5) en el rango de 
-     * edad (A..B], es decir, donde A < edad >= B
-     * @param a asd
-     * @param b asdas
-     * @return el listado de comentarios cuyo puntaje es mejor que n
-     * @throws ServiceFacadeException si n es negativo o si se presenta un error
-     * a nivel de base de datos
+     * Consultar los comentarios con puntaje menor o igual a 3 en el rango de 
+     * anos de nacimiento (A..B], es decir, donde A < ano_nacimiento <= B
+     * @param a limite inferior del ano de nacimiento
+     * @param b limite superior del ano de nacimiento
+     * @return el listado de comentarios cuyo puntaje es mejor o igual a 3 de los
+     * suscriptores que han nacido entre los anos A y B
+     * @throws ServiceFacadeException si los parametros son inconsistentes: B<=A   
+     *  o si se presenta un error a nivel de persistencia
      */
-    public Set<Comentario> comenteriosMasBajosPorRangoEdad(int a,int b) throws ExcepcionServiciosSuscripciones;
+    public List<Comentario> comenteriosMasBajosPorRangoNacimiento(int a,int b) throws ExcepcionServiciosSuscripciones;
     
 
     /**
@@ -30,7 +31,7 @@ public interface ServiciosSuscripciones {
      * desde el mas reciente hasta el mas antiguo
      * @return el listado de comentarios, con sus respectivos suscriptores
      */
-    public Set<Comentario> comenteriosRegistrados() throws ExcepcionServiciosSuscripciones;
+    public List<Comentario> comenteriosRegistrados() throws ExcepcionServiciosSuscripciones;
 
     
 

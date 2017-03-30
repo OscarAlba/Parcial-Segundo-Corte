@@ -17,6 +17,7 @@
 package edu.eci.pdsw.samples.persistence;
 
 import edu.eci.pdsw.samples.entities.Comentario;
+import java.util.List;
 import java.util.Set;
 
 
@@ -29,19 +30,25 @@ public interface DaoComentario {
     
 
      /**
-     * Consultar todos los comentarios con un puntaje inferior a N de acuerdo
-     * con un rango de edad.
+     * Consultar todos los comentarios con un puntaje inferior o igual a N de acuerdo
+     * con un rango de anos de nacimiento.
      * @param n puntaje N de referencia
      * @param a valor A del intervalo
      * @param b valor B del intervalo
      * @return el listado de todos los comentarios con un puntaje inferior a N de acuerdo
      * con un rango de edad dado [A..B], es decir, comentarios en donde
-     * puntaje < N    y   A < edad <= B
+     * puntaje <= N    y   A < ano nacimiento <= B
      * @throws PersistenceException si hay un error en la persistencia
      */
-    public Set<Comentario> loadByScoreAndAge(int n, int a, int b) throws PersistenceException;
+    public List<Comentario> loadByScoreAndBirthYear(int n, int a, int b) throws PersistenceException;
     
-    public Set<Comentario> loadAll() throws PersistenceException;
+    
+    /**
+     * Consultar todos los comentarios, ordenados por fecha
+     * @return todos los comentarios, ordenados por fecha
+     * @throws PersistenceException si hay un error de persistencia
+     */
+    public List<Comentario> loadAll() throws PersistenceException;
     
     
 }
