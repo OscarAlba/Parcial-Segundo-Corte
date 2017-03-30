@@ -65,6 +65,7 @@ $ git config --global user.email juan.perez@escuelaing.edu.co
 
 	```bash
 $ git add .
+
 $ git commit -m "entrega parcial - Juan Perez"
 ```
 
