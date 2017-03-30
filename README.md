@@ -36,7 +36,7 @@ A partir de la aplicación base suministrada, debe realizar lo siguiente:
 
 1.  (20%) A partir de la especificación hecha en el método *comenteriosMasBajosPorRangoNacimiento* de la fachada de servicios (la parte lógica de la aplicación):
 	* Defina dos casos de prueba de frontera, y escríbalos en los comentarios de la clase ServicesJUnitTest. 
-	* Implemente ÚNICAMENTE un caso de prueba para los casos de frontera planteados, basándose en la prueba de ejemplo: 'pruebaCeroTest', la cual muestra cómo insertar datos en la base de datos de pruebas (volatil) antes de realizar la prueba. Recuerde que las aserciones deben incluir mensajes claros que indiquen -en caso de que la prueba falle- el defecto detectado.
+	* Implemente ÚNICAMENTE un caso de prueba para CADA UNO DE LOS DOS casos de frontera planteados, basándose en la prueba de ejemplo: 'pruebaCeroTest', la cual muestra cómo insertar datos en la base de datos de pruebas (volatil) antes de realizar la prueba. Recuerde que las aserciones deben incluir mensajes claros que indiquen -en caso de que la prueba falle- el defecto detectado.
 
 
 2.  (40%) Termine la implementación de la capa lógica de la aplicación (ServiciosSuscripcionesImpl). Implemente todo lo que haga falta de la capa de persistencia para poder realizar esto.
