@@ -4,12 +4,25 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Reportes de comentarios negativos</title>
+        <title>Reportes de comentarios</title>
     </h:head>
     <h:body>
-        <h1>Reportes de comentarios negativos</h1>
-        <h:form>
-
+        <h:form id="Comentario">
+            <p:dataTable id="TablaComentarios" var="Comentarios"  value="#{ReporteComentarios.comentarios}">
+                <p:column headerText="Fecha">
+                    <h:outputText value="#{Comentarios.fecha}"/>
+                </p:column>
+                <p:column headerText="Comentario">
+                    <h:outputText value="#{Comentarios.comentario}"/>
+                </p:column>
+                <p:column headerText="Suscriptor">
+                    <h:outputText value="#{Comentarios.suscriptor.nombre}"/>
+                </p:column>
+            </p:dataTable>
+            <p:inputText id="a" value="#{ReporteComentarios.a}" label="a"></p:inputText>
+            <p:inputText id="b" value="#{ReporteComentarios.b}" label="b"></p:inputText>
+            <p:commandButton type="submit" value="GO" update="Comentario" action="consultaComentariosPorRango"/>
+            
         </h:form>
     </h:body>
 </html>

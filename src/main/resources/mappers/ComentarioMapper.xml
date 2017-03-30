@@ -5,7 +5,51 @@
                      
 <mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.ComentariosMapper">
 
-        
+     <select parameterType="map" id ="comentariosOrdenadosPorFecha" resultMap="ComentarioResult">
+        select
+          c.id,
+          comentario,
+          puntaje,
+          fecha,
+          s.id as S_id,
+          s.nombre as S_nombre,
+          s.anyo_nacimiento as S_anyo_nacimiento,
+          s.total_suscripciones as S_total_suscripciones
+         
+         from SUS_COMENTARIOS as c join SUS_SUSCRIPTORES as s on  CLIENTES_id=s.id 
+         order by fecha;
+     </select>   
     
-  	
+    <select parameterType="map" id ="comentariosPorIntervaloAnyo" resultMap="ComentarioResult">
+        select
+          c.id,
+          comentario,
+          puntaje,
+          fecha,
+          s.id as S_id,
+          s.nombre as S_nombre,
+          s.anyo_nacimiento as S_anyo_nacimiento,
+          s.total_suscripciones as S_total_suscripciones
+         
+         from SUS_COMENTARIOS as c join SUS_SUSCRIPTORES as s on  CLIENTES_id=s.id
+		where puntaje &gt;= #{n} and #{a} &lt; anyo_nacimiento and anyo_nacimiento &gt;= #{b}
+         order by  S_anyo_nacimiento;
+     </select>  
+    
+    
+     <resultMap type='Comentario' id='ComentarioResult'>
+         <id property='id' column='id'/>
+         <result property='fecha' column='fecha'/>
+         <result property='comentario' column='comentario'/>
+         <result property='puntaje' column='puntaje'/>
+         <association property='suscriptor' javaType='Suscriptor' columnPrefix='S_' resultMap='SuscriptorResult'></association>
+     </resultMap>
+     
+     <resultMap type='Suscriptor' id='SuscriptorResult'>
+         <id property='id' column='id'/>
+         <result property='nombre' column='nombre'/>
+         <result property='anoNacimiento' column='anoNacimiento'/>
+         <result property='numeroSuscripciones' column='numeroSuscripciones'/>
+     </resultMap>
+     
 </mapper>

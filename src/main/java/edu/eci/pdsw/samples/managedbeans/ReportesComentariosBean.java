@@ -18,7 +18,10 @@ package edu.eci.pdsw.samples.managedbeans;
 
 import edu.eci.pdsw.samples.entities.Comentario;
 import edu.eci.pdsw.samples.services.ExcepcionServiciosSuscripciones;
+import edu.eci.pdsw.samples.services.ServiciosSuscripciones;
 import edu.eci.pdsw.samples.services.ServiciosSuscripcionesFactory;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,11 +30,45 @@ import javax.faces.bean.SessionScoped;
 
 /**
  *
- * @author hcadavid
+ * @author 2106991
  */
-public class ReportesComentariosBean {
-    
-    
 
+@ManagedBean(name = "ReporteComentarios")
+@SessionScoped
+
+public class ReportesComentariosBean implements Serializable{
     
+    ServiciosSuscripciones ss = ServiciosSuscripcionesFactory.getInstance().getSuscriptionServices();
+    int a;
+    int b;
+    
+    public ReportesComentariosBean(){
+      a=0;
+      b=0;
+    }
+    public List<Comentario> getComentarios() throws ExcepcionServiciosSuscripciones{
+        return ss.comenteriosRegistrados();
+    }
+    
+    public List<Comentario> getComentariosXanio() throws ExcepcionServiciosSuscripciones{
+        return ss.comenteriosMasBajosPorRangoNacimiento(a, b);
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+    
+   
 }

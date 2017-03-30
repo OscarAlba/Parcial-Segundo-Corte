@@ -8,8 +8,22 @@
     </h:head>
     <h:body>
         <h1>Reportes de comentarios negativos por rango de anos de nacimiento</h1>
-        <h:form>
-
+        <h:form id="ComentariosNegativos">
+            <p:dataTable id="TablaPorRango" var="Comentario"  value="#{ReporteComentarios.comentariosXanio}">
+                <p:column headerText="Fecha">
+                    <h:outputText value="#{Comentarios.fecha}"/>
+                </p:column>
+                <p:column headerText="Comentario">
+                    <h:outputText value="#{Comentarios.comentario}"/>
+                </p:column>
+                <p:column headerText="Suscriptor">
+                    <h:outputText value="#{Comentarios.suscriptor.nombre}"/>
+                </p:column>
+                <p:column headerText="Año de Nacimiento del Suscriptor">
+                    <h:outputText value="#{Comentario.suscriptor.anoNacimiento}"/>
+                </p:column>
+            </p:dataTable>
+            <p:commandButton type="submit" value="Regresar a los comentarios" update="ComentariosNegativos" action="consultaComentarios"/>
         </h:form>
     </h:body>
 </html>

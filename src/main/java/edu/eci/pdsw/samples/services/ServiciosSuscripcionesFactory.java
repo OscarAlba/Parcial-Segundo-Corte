@@ -63,12 +63,15 @@ public class ServiciosSuscripcionesFactory {
     public ServiciosSuscripciones getSuscriptionServices(){
         return injector.getInstance(ServiciosSuscripciones.class);   
     }
-
+    public DaoComentario getDAOcomentario() {
+        return injector.getInstance(DaoComentario.class);
+    }
     public ServiciosSuscripciones getSuscriptionServicesForTesting(){
         return testingInjector.getInstance(ServiciosSuscripciones.class);   
     }
-
-
+    public DaoComentario getDAOcomentarioTesting() {
+        return testingInjector.getInstance(DaoComentario.class);
+    }
     
     public static ServiciosSuscripcionesFactory getInstance(){
         return instance;
@@ -76,7 +79,7 @@ public class ServiciosSuscripcionesFactory {
     
     
     public static void main(String a[]) throws ExcepcionServiciosSuscripciones{
-       // System.out.println(ServiciosSuscripcionesFactory.getInstance().getSuscriptionServices().comenteriosMasBajosPorRangoEdad(1, 10));
+       //System.out.println(ServiciosSuscripcionesFactory.getInstance().getSuscriptionServices().comenteriosMasBajosPorRangoNacimiento(0, 10));
     }
     
 }

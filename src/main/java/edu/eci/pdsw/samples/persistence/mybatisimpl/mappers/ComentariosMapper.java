@@ -18,6 +18,7 @@ package edu.eci.pdsw.samples.persistence.mybatisimpl.mappers;
 
 import edu.eci.pdsw.samples.entities.Comentario;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 /**
  *
@@ -25,7 +26,7 @@ import java.util.List;
  */
 public interface ComentariosMapper {
 
-    public List<Comentario> comentariosPorIntervaloAnyo(int N, int a,int b);
+    public List<Comentario> comentariosPorIntervaloAnyo(@Param("n")int N, @Param("a")int a,@Param("b")int b);
     
     public List<Comentario> comentariosOrdenadosPorFecha();
     

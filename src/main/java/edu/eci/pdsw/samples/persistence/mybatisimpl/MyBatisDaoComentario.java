@@ -32,17 +32,20 @@ public class MyBatisDaoComentario implements DaoComentario{
 
         
     @Inject
-    private ComentariosMapper pmap=null;
+    private ComentariosMapper pmap;
 
 
     @Override
     public List<Comentario> loadAll() throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return pmap.comentariosOrdenadosPorFecha();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Comentario> loadByScoreAndBirthYear(int N, int a, int b) throws PersistenceException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return pmap.comentariosPorIntervaloAnyo(N, a, b);
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
